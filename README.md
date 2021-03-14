@@ -28,4 +28,5 @@ I hope you find this project useful, feel free to fork or pull request it
 That's how the page looks like:
 ![Screenshot of the landing page](/screenshots/screenshot1.png)
 ![Another screenshot for the landing page](/screenshots/screenshot2.png)
+![Another screenshot for the landing page](/screenshots/screenshot3.png)
 

@@ -51,7 +51,7 @@ scrollLink.addEventListener('click', () => {
  */
 
 let timer = null;
-const hideDuration = 2000;
+const hideDuration = 10000;
 
 window.addEventListener('scroll', () => {
     if (timer != null) {
@@ -81,33 +81,35 @@ window.addEventListener('scroll', () => {
  * finally adding the fragment to the DOM
  * the counter is for setting the href of the anchor element
  */
-counter = 1
-for (section of sections) {
-    let li = document.createElement('li');
-    let a = document.createElement('a');
-    let href = '#section' + String(counter);
-    a.setAttribute('href', href);
-    a.innerText = section.firstElementChild.firstElementChild.innerText;
-    li.appendChild(a);
-    /**
-     * The following event listener will
-     * highlight current active nav item
-     * when a li elem is clicked then active class will be added to its class list
-     * and removes active class from the previous active item
-     */
-    li.addEventListener('click', function(e) {
-        let activeItem = document.querySelector('.active');
-        if (activeItem) {
-            activeItem.className = activeItem.className.replace("active", "");
-        }
-        this.className += "active";
-        /** 
-         * smooth scrolling behavior
+document.addEventListener('DOMContentLoaded', () => {
+    counter = 1
+    for (section of sections) {
+        let li = document.createElement('li');
+        let a = document.createElement('a');
+        let href = '#section' + String(counter);
+        a.setAttribute('href', href);
+        a.innerText = section.firstElementChild.firstElementChild.innerText;
+        li.appendChild(a);
+        /**
+         * The following event listener will
+         * highlight current active nav item
+         * when a li elem is clicked then active class will be added to its class list
+         * and removes active class from the previous active item
          */
-        e.preventDefault();
-        document.querySelector(href).scrollIntoView({ behavior: "smooth" });
-    });
-    fragment.appendChild(li);
-    counter++;
-}
-navList.appendChild(fragment);
+        li.addEventListener('click', function(e) {
+            let activeItem = document.querySelector('.active');
+            if (activeItem) {
+                activeItem.className = activeItem.className.replace("active", "");
+            }
+            this.className += "active";
+            /** 
+             * smooth scrolling behavior
+             */
+            e.preventDefault();
+            document.querySelector(href).scrollIntoView({ behavior: "smooth" });
+        });
+        fragment.appendChild(li);
+        counter++;
+    }
+    navList.appendChild(fragment);
+});
