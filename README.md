@@ -11,7 +11,7 @@
 
 > To get started, open `js/app.js` and start building out the app's functionality
 
-> For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
 This a fork from [udacity front end projects](https://github.com/udacity/fend/tree/refresh-2019/projects/landing-page).
 
 In this project I implemented in pure HTML, CSS, and Javascript the following features:
