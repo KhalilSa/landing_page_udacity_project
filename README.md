@@ -16,10 +16,11 @@ This a fork from [udacity front end projects](https://github.com/udacity/fend/tr
 
 In this project I implemented in pure HTML, CSS, and Javascript the following features:
 1. dynamic navbar
-2. highlighting for the active nav element
+2. dynamic highlighting for the active nav element
 3. smooth scrolling
 4. scroll to top button
 5. hide fixed navbar while reading (not scrolling)
+6. simple animations
 
 I hope you find this project useful, feel free to fork or pull request it
 

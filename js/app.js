@@ -39,6 +39,36 @@ window.addEventListener('scroll', () => {
     }
 });
 
+/**
+ * Dynamically highlight current active section item in navbar
+ * first we calculate the position of each section 
+ * using the getboundingclientrect function at each scroll event
+ * second we'll add an active state class if the calculated value is in the range of (-200px; 150px)
+ * remove the class otherwise
+ */
+
+window.addEventListener('scroll', () => {
+    let boundries = [];
+    for (const sect of sections) {
+        boundries.push([sect.getBoundingClientRect().y, sect.id]);
+    }
+    for (let boundry of boundries) {
+        if (boundry[0] > -200 && boundry[0] < 150) {
+            let elms = document.querySelectorAll('a[href*=section]');
+            let activeItem = document.querySelector('.active');
+            if (activeItem) {
+                activeItem.className = activeItem.className.replace("active", "");
+            }
+            for (let elm of elms) {
+                if (elm.href.endsWith(boundry[1])) {
+                    elm.parentElement.className += "active";
+                }
+            }
+        }
+    }
+});
+
+// smooth scrolling for the 'to the top' link
 scrollLink.addEventListener('click', () => {
     window.scroll({
         top: 0,
@@ -51,7 +81,7 @@ scrollLink.addEventListener('click', () => {
  */
 
 let timer = null;
-const hideDuration = 10000;
+const hideDuration = 1000000;
 
 window.addEventListener('scroll', () => {
     if (timer != null) {
@@ -83,7 +113,7 @@ window.addEventListener('scroll', () => {
  */
 document.addEventListener('DOMContentLoaded', () => {
     counter = 1
-    for (section of sections) {
+    for (let section of sections) {
         let li = document.createElement('li');
         let a = document.createElement('a');
         let href = '#section' + String(counter);
